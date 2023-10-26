@@ -30,15 +30,15 @@
 	
 	\begin{theorem}
 		Розклад функції \( \sin(x) \) у ряд Тейлора в точці \( x = 0 \) має наступний вигляд:
-		\begin{equation} \label{eq:sin_series}
-			\sin(x) = \sum_{k=0}^{\infty} \frac{(-1)^k \cdot x^{2k+1}}{(2k + 1)!}.
+		\begin{equation} \label{eq:cot_general}
+			\cot(x) = \sum_{n=1}^{\infty} \frac{(-1)^{n+1} x^{2n-1}}{2n-1} 
 		\end{equation}
 	\end{theorem}
 	
 	\begin{definition}
-		Позначимо \( k \)-ий член цього ряду як \( q_k \):
-		\begin{equation} \label{eq:qk_def}
-			q_k = \frac{(-1)^k \cdot x^{2k+1}}{(2k + 1)!}.
+		Позначимо \( n \)-ий член цього ряду як \( q_n \):
+		\begin{equation} \label{eq:q_sum_n}
+			q_n = \frac{(-1)^{n+1} x^{2n-1}}{2n-1}
 		\end{equation}
 	\end{definition}
 	
@@ -54,7 +54,7 @@
 	\begin{definition}
 		Вираз для \( q_{n+1} \) має наступний вигляд:
 		\begin{equation} \label{eq:qn1_def}
-			q_{n+1} = \frac{(-1)^{n+1} \cdot x^{2(n+1)+1}}{(2(n+1) + 1)!}.
+			q_{n+1} = \frac{(-1)^{n+2} x^{2n+1}}{2n+1}
 		\end{equation}
 	\end{definition}
 	
@@ -84,7 +84,7 @@
 	
 	
 	\bibliographystyle{plain}
-	\bibliography{lib}
+\bibliography{lib}
 	
 	\end{document}
 	
