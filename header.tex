@@ -1,0 +1,62 @@
+% Вказуємо клас документа, розмір шрифту та формат паперу
+\documentclass[14pt,a4paper,twoside]{article}
+
+% --- Шрифти ---
+\usepackage{lmodern} % Сучасні шрифти для кращої сумісності та масштабування
+
+% --- Кодування та Локалізація ---
+\usepackage[utf8]{inputenc} % Встановлює кодування вводу як UTF-8
+\usepackage[T2A]{fontenc}   % Встановлює кодування шрифту для кирилиці
+\usepackage[english,ukrainian]{babel} % Підтримка англійської та української мов
+
+% --- Графіка ---
+\usepackage{graphicx} % Для вставки графічних зображень (jpg, png, etc.)
+
+% --- Геометрія сторінки ---
+\usepackage[left=25.4mm, right=12.7mm, top=20mm, bottom=20mm]{geometry} % Встановлює поля документа
+
+% --- Відступи та форматування тексту ---
+\usepackage{indentfirst} % Додає відступ для першого абзацу після заголовка розділу
+
+% --- Математичні пакети ---
+\usepackage{amsmath}  % Додаткові математичні символи та формули
+\usepackage{amsfonts} % Додаткові математичні шрифти (наприклад, \mathbb)
+\usepackage{amssymb}  % Додаткові математичні символи (наприклад, \nexists, \varnothing)
+
+% --- Таблиці ---
+\usepackage{array}    % Для додаткових опцій форматування таблиць
+
+% --- Форматування заголовків ---
+\usepackage{titlesec} % Для кастомізації формату заголовків (розділів, підрозділів, тощо)
+
+% --- Заголовки та підвали сторінок ---
+\usepackage{fancyhdr} % Для кастомізації заголовків та підвалів сторінок
+
+% --- Міжрядкові інтервали ---
+\usepackage{setspace} % Для керування міжрядковими інтервалами
+
+% --- Додаткові утиліти (Lorem Ipsum, посилання на розділи, тощо) ---
+\usepackage{lipsum}   % Для генерації "заповнювача тексту" (Lorem Ipsum)
+\usepackage{nameref}  % Для створення посилань на назви розділів у тексті
+
+% --- Гіперпосилання (зазвичай підключається останнім) ---
+\usepackage{hyperref} % Для створення активних гіперпосилань у PDF
+
+% --- Налаштування формату заголовків та інших елементів ---
+\titleformat{\section}[block]{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}[block]{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}[block]{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+% --- Відступи після заголовків ---
+\titlespacing*{\paragraph}{0pt}{\baselineskip}{1em}
+\titlespacing*{\subparagraph}{0pt}{\baselineskip}{1em}
+
+% --- Налаштування сторінок ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RO]{\thepage}
+\fancyhead[LE]{\thepage}
+\fancyhead[CE,CO]{}
+\fancypagestyle{plain}{
+	\fancyhf{}
+}

@@ -1,0 +1,167 @@
+% Вказуємо клас документа, розмір шрифту та формат паперу
+\documentclass[14pt,a4paper,twoside]{extarticle} % Використовуємо клас extarticle для підтримки 14pt
+
+\usepackage[14pt]{extsizes} % Задаємо розмір шрифту 14pt
+
+% --- Кодування та Локалізація ---
+\usepackage[utf8]{inputenc} % Встановлює кодування вводу як UTF-8
+\usepackage[T2A]{fontenc}   % Встановлює кодування шрифту для кирилиці
+\usepackage[english,ukrainian]{babel} % Підтримка англійської та української мов
+
+% --- Графіка ---
+\usepackage{graphicx} % Для вставки графічних зображень (jpg, png, etc.)
+
+% --- Геометрія сторінки ---
+\usepackage[left=25.4mm, right=12.7mm, top=20mm, bottom=20mm]{geometry} % Встановлює поля документа
+
+% --- Відступи та форматування тексту ---
+\usepackage{indentfirst} % Додає відступ для першого абзацу після заголовка розділу
+
+% --- Математичні пакети ---
+\usepackage{amsmath}  % Додаткові математичні символи та формули
+\usepackage{amsfonts} % Додаткові математичні шрифти (наприклад, \mathbb)
+\usepackage{amssymb}  % Додаткові математичні символи (наприклад, \nexists, \varnothing)
+\usepackage{amsthm}   % Пакет для визначення нових теоремних середовищ
+
+% Означення стилів
+\theoremstyle{definition}
+\newtheorem{definition}{Означення}[section] % Означення нумеруються в межах розділу
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Теорема}[section] % Теореми нумеруються в межах розділу
+
+\theoremstyle{plain}
+\newtheorem{corollary}{Наслідок}[theorem] % Наслідки нумеруються разом з теоремами
+
+\usepackage[backend=biber,style=numeric]{biblatex}
+
+
+% --- Таблиці ---
+\usepackage{array}    % Для додаткових опцій форматування таблиць
+
+% --- Форматування заголовків ---
+\usepackage{titlesec} % Для кастомізації формату заголовків (розділів, підрозділів, тощо)
+
+% --- Заголовки та підвали сторінок ---
+\usepackage{fancyhdr} % Для кастомізації заголовків та підвалів сторінок
+
+% --- Міжрядкові інтервали ---
+\usepackage{setspace} % Для керування міжрядковими інтервалами
+
+% --- Додаткові утиліти (Lorem Ipsum, посилання на розділи, тощо) ---
+\usepackage{lipsum}   % Для генерації "заповнювача тексту" (Lorem Ipsum)
+\usepackage{nameref}  % Для створення посилань на назви розділів у тексті
+
+% --- Гіперпосилання (зазвичай підключається останнім) ---
+\usepackage{hyperref} % Для створення активних гіперпосилань у PDF
+
+% --- Налаштування формату заголовків та інших елементів ---
+\titleformat{\section}[block]{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}[block]{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}[block]{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+% --- Відступи після заголовків ---
+\titlespacing*{\paragraph}{0pt}{\baselineskip}{1em}
+\titlespacing*{\subparagraph}{0pt}{\baselineskip}{1em}
+
+% --- Налаштування сторінок ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RO]{\thepage}
+\fancyhead[LE]{\thepage}
+\fancyhead[CE,CO]{}
+\fancypagestyle{plain}{
+	\fancyhf{}
+}
+
+
+\begin{document}
+	
+	\section{Вступ}
+	Нехай буде теорема Тейлора (див. \cite{weisstein})
+	\begin{theorem}\label{ttt1}
+		\textbf{Теорема Тейлора.} Нехай $n\geq1$ є цілим числом, і функція $f(x)$ є $n+1$ разів диференційованою в околі точки $a\in\mathbb{R}$. Нехай $x$ є будь-яким аргументом функції з такого околу, $p$ - деяке додатне число. Тоді існує деяке $c$ між точками $a$ та $x$, таке що
+		\begin{equation}\label{mvm}
+			f(x)=f(a)+\frac{f'(a)}{1!}(x-a)+\frac{f''(a)}{2!}(x-a)^2+\cdots+\frac{f^{(n)}(a)}{n!}(x-a)^n+R_{n+1}(x)
+		\end{equation}
+		де $R_{n+1}(x)$ - загальна форма залишкового члену
+		
+		\begin{equation}\label{xcxxxs}
+			R_{n+1}(x)=\left(\frac{x-a}{x-a}\right)^p \frac{(x-c)^{n+1}}{n!p}f^{(n+1)}(c)
+		\end{equation}
+
+		\end{theorem}
+	\section{Розклад функцій у ряд Тейлора}
+	
+	\subsection{Розклад функції \( \sin(x) \)}
+	
+	\begin{definition}
+		Ряд Тейлора для функції \( f(x) \) в точці \( a \) визначається наступним чином:
+		\[
+		f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n.
+		\]
+	\end{definition}
+	
+	\begin{theorem}
+		Розклад функції \( \sin(x) \) у ряд Тейлора в точці \( x = 0 \) має наступний вигляд:
+		\begin{equation} \label{eq:sin_series}
+			\sin(x) = \sum_{k=0}^{\infty} \frac{(-1)^k \cdot x^{2k+1}}{(2k + 1)!}.
+		\end{equation}
+	\end{theorem}
+	
+	\begin{definition}
+		Позначимо \( k \)-ий член цього ряду як \( q_k \):
+		\begin{equation} \label{eq:qk_def}
+			q_k = \frac{(-1)^k \cdot x^{2k+1}}{(2k + 1)!}.
+		\end{equation}
+	\end{definition}
+	
+	\subsection{Рекурентні вирази}
+	
+	\begin{definition}
+		Рекурентний множник \( R \) визначається як відношення \( (n+1) \)-го члену ряду до \( n \)-го члену ряду:
+		\begin{equation} \label{eq:R_def}
+			R = \frac{q_{n+1}}{q_n}.
+		\end{equation}
+	\end{definition}
+	
+	\begin{definition}
+		Вираз для \( q_{n+1} \) має наступний вигляд:
+		\begin{equation} \label{eq:qn1_def}
+			q_{n+1} = \frac{(-1)^{n+1} \cdot x^{2(n+1)+1}}{(2(n+1) + 1)!}.
+		\end{equation}
+	\end{definition}
+	
+	\begin{theorem} \label{thm:ratio_test_result}
+		Для деякого ряду, елементи якого задається виразом \(q_n = (-1)^n \cdot \frac{x^{2n+1}}{(2n + 1)!}\), відношення \(R\) між послідовними членами ряду визначається як:
+		\[
+		R = \frac{q_{n+1}}{q_n} = -\frac{x^2}{(2n + 2)(2n + 3)}.
+		\]
+	\end{theorem}
+	
+	\begin{proof}
+		Підставляючи \eqref{eq:qn1_def} та \eqref{eq:qk_def} у \eqref{eq:R_def}, отримуємо:
+		\begin{align*}
+			R = \frac{q_{n+1}}{q_n} &= \frac{(-1)^{n+1} \cdot x^{2(n+1)+1}}{(2(n+1) + 1)!} \cdot \frac{(2n + 1)!}{(-1)^n \cdot x^{2n+1}}= \\
+			&= -\frac{x^2}{(2n + 2)(2n + 3)},
+		\end{align*}
+		отже:
+		\begin{equation} \label{eq:R_simplified}
+			R = -\frac{x^2}{(2n + 2)(2n + 3)}.
+		\end{equation}
+	\end{proof}
+	
+	\begin{corollary}
+		Знаючи \( R \) і \( q_n \), можна знайти \( q_{n+1} \) як \( q_{n+1} = R \cdot q_n \).
+	\end{corollary}
+	
+	
+	
+    \begin{thebibliography}{9}
+
+	\bibitem{weisstein} \label{weisstein}
+	Weisstein, Eric W. \href{https://mathworld.wolfram.com/TaylorsTheorem.html}{"Taylors Theorem."} From MathWorld--A Wolfram Web Resource.
+	\end{thebibliography}
+	
+	\end{document}
+	
