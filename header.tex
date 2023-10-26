@@ -1,8 +1,7 @@
 % Вказуємо клас документа, розмір шрифту та формат паперу
-\documentclass[14pt,a4paper,twoside]{article}
+\documentclass[14pt,a4paper,twoside]{extarticle} % Використовуємо клас extarticle для підтримки 14pt
 
-% --- Шрифти ---
-\usepackage{lmodern} % Сучасні шрифти для кращої сумісності та масштабування
+\usepackage[14pt]{extsizes} % Задаємо розмір шрифту 14pt
 
 % --- Кодування та Локалізація ---
 \usepackage[utf8]{inputenc} % Встановлює кодування вводу як UTF-8
@@ -22,6 +21,20 @@
 \usepackage{amsmath}  % Додаткові математичні символи та формули
 \usepackage{amsfonts} % Додаткові математичні шрифти (наприклад, \mathbb)
 \usepackage{amssymb}  % Додаткові математичні символи (наприклад, \nexists, \varnothing)
+\usepackage{amsthm}   % Пакет для визначення нових теоремних середовищ
+
+% Означення стилів
+\theoremstyle{definition}
+\newtheorem{definition}{Означення}[section] % Означення нумеруються в межах розділу
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Теорема}[section] % Теореми нумеруються в межах розділу
+
+\theoremstyle{plain}
+\newtheorem{corollary}{Наслідок}[theorem] % Наслідки нумеруються разом з теоремами
+
+\usepackage[backend=biber,style=numeric]{biblatex}
+
 
 % --- Таблиці ---
 \usepackage{array}    % Для додаткових опцій форматування таблиць
