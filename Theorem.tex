@@ -19,7 +19,7 @@
 		\end{theorem}
 	\section{Розклад функцій у ряд Тейлора}
 	
-	\subsection{Розклад функції \( \sin(x) \)}
+	\subsection{Розклад функції \( \cos(x) \)}
 	
 	\begin{definition}
 		Ряд Тейлора для функції \( f(x) \) в точці \( a \) визначається наступним чином:
@@ -29,17 +29,17 @@
 	\end{definition}
 	
 	\begin{theorem}
-		Розклад функції \( \sin(x) \) у ряд Тейлора в точці \( x = 0 \) має наступний вигляд:
-		\begin{equation} \label{eq:cot_general}
-			\cot(x) = \sum_{n=1}^{\infty} \frac{(-1)^{n+1} x^{2n-1}}{2n-1} 
-		\end{equation}
+		Розклад функції \( \cos(x) \) у ряд Тейлора в точці \( x = 0 \) має наступний вигляд:
+			\begin{equation} \label{eq:cot_general}
+	\cot(x) = \sum_{n=1}^{\infty} \frac{(-1)^{n+1} x^{2n-1}}{2n-1} 
+			\end{equation}
 	\end{theorem}
 	
 	\begin{definition}
 		Позначимо \( n \)-ий член цього ряду як \( q_n \):
-		\begin{equation} \label{eq:q_sum_n}
-			q_n = \frac{(-1)^{n+1} x^{2n-1}}{2n-1}
-		\end{equation}
+	\begin{equation} \label{eq:q_sum_n}
+	q_n = \frac{(-1)^{n+1} x^{2n-1}}{2n-1}
+	\end{equation}
 	\end{definition}
 	
 	\subsection{Рекурентні вирази}
@@ -59,22 +59,23 @@
 	\end{definition}
 	
 	\begin{theorem} \label{thm:ratio_test_result}
-		Для деякого ряду, елементи якого задається виразом \(q_n = (-1)^n \cdot \frac{x^{2n+1}}{(2n + 1)!}\), відношення \(R\) між послідовними членами ряду визначається як:
+		Для деякого ряду, елементи якого задається виразом \(q_n = (-1)^{n+1} \cdot \frac{x^{2n-1}}{2n-1}\), відношення \(R\) між послідовними членами ряду визначається як:
 		\[
-		R = \frac{q_{n+1}}{q_n} = -\frac{x^2}{(2n + 2)(2n + 3)}.
+		R = \frac{q_{n+1}}{q_n} = -\frac{x^{2n+1} (2n-1)}{x^{2n-1} (2n+1)}.
 		\]
 	\end{theorem}
 	
 	\begin{proof}
-		Підставляючи \eqref{eq:qn1_def} та \eqref{eq:qk_def} у \eqref{eq:R_def}, отримуємо:
+		Підставляючи \eqref{eq:qn1_def} та \eqref{eq:q_sum_n} у \eqref{eq:R_def}, отримуємо:
 		\begin{align*}
-			R = \frac{q_{n+1}}{q_n} &= \frac{(-1)^{n+1} \cdot x^{2(n+1)+1}}{(2(n+1) + 1)!} \cdot \frac{(2n + 1)!}{(-1)^n \cdot x^{2n+1}}= \\
-			&= -\frac{x^2}{(2n + 2)(2n + 3)},
+			R = \frac{q_{n+1}}{q_n} &= 
+			\frac{(-1)^{n+2} \cdot x^{2n+1}}{2n+1} \cdot \frac{(-1)^{n+1} x^{2n-1}}{2n-1}= \\
+			&= -\frac{x^{2n+1} (2n-1)}{x^{2n-1} (2n+1)},
 		\end{align*}
 		отже:
-		\begin{equation} \label{eq:R_simplified}
-			R = -\frac{x^2}{(2n + 2)(2n + 3)}.
-		\end{equation}
+	\begin{equation} \label{eq:R_simplified}
+	R = -\frac{x^{2n+1} (2n-1)}{x^{2n-1} (2n+1)}
+\end{equation}
 	\end{proof}
 	
 	\begin{corollary}
@@ -85,6 +86,8 @@
 	
 	\bibliographystyle{plain}
 \bibliography{lib}
+
+
 	
 	\end{document}
 	
